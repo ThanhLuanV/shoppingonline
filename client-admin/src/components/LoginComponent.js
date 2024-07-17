@@ -14,26 +14,37 @@ class Login extends Component {
   render() {
     if (this.context.token === '') {
       return (
-        <div className="align-valign-center">
-          <h2 className="text-center">ADMIN LOGIN</h2>
-          <form>
-            <table className="align-center">
-              <tbody>
-                <tr>
-                  <td>Username</td>
-                  <td><input type="text" value={this.state.txtUsername} onChange={(e) => { this.setState({ txtUsername: e.target.value }) }} /></td>
-                </tr>
-                <tr>
-                  <td>Password</td>
-                  <td><input type="password" value={this.state.txtPassword} onChange={(e) => { this.setState({ txtPassword: e.target.value }) }} /></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td><input type="submit" value="LOGIN" onClick={(e) => this.btnLoginClick(e)} /></td>
-                </tr>
-              </tbody>
-            </table>
-          </form>
+        <div className="d-flex justify-content-center align-items-center vh-100">
+          <div className="card p-4">
+            <h2 className="text-center">ADMIN LOGIN</h2>
+            <form>
+              <div className="form-group">
+                <label>Username</label>
+                <input 
+                  type="text" 
+                  className="form-control" 
+                  value={this.state.txtUsername} 
+                  onChange={(e) => { this.setState({ txtUsername: e.target.value }) }} 
+                />
+              </div>
+              <div className="form-group">
+                <label>Password</label>
+                <input 
+                  type="password" 
+                  className="form-control" 
+                  value={this.state.txtPassword} 
+                  onChange={(e) => { this.setState({ txtPassword: e.target.value }) }} 
+                />
+              </div>
+              <button 
+                type="submit" 
+                className="btn btn-primary btn-block"
+                onClick={(e) => this.btnLoginClick(e)}
+              >
+                LOGIN
+              </button>
+            </form>
+          </div>
         </div>
       );
     }
