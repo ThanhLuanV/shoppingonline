@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import MyContext from '../contexts/MyContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Login extends Component {
   static contextType = MyContext; // using this.context to access global state
@@ -11,6 +12,7 @@ class Login extends Component {
       txtPassword: ''
     };
   }
+
   render() {
     if (this.context.token === '') {
       return (
@@ -50,6 +52,7 @@ class Login extends Component {
     }
     return (<div />);
   }
+
   // event-handlers
   btnLoginClick(e) {
     e.preventDefault();
@@ -62,6 +65,7 @@ class Login extends Component {
       alert('Please input username and password');
     }
   }
+
   // apis
   apiLogin(account) {
     axios.post('/api/admin/login', account).then((res) => {
