@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import MyContext from '../contexts/MyContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './custom.css'; // Import custom CSS for further customization if needed
 
 class Login extends Component {
   static contextType = MyContext; // using this.context to access global state
@@ -16,12 +17,12 @@ class Login extends Component {
   render() {
     if (this.context.token === '') {
       return (
-        <div className="d-flex justify-content-center align-items-center vh-100">
-          <div className="card p-4">
-            <h2 className="text-center">ADMIN LOGIN</h2>
+        <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
+          <div className="card shadow-sm p-4" style={{ maxWidth: '400px', width: '100%' }}>
+            <h2 className="text-center text-primary mb-4">ADMIN LOGIN</h2>
             <form>
-              <div className="form-group">
-                <label>Username</label>
+              <div className="mb-3">
+                <label className="form-label">Username</label>
                 <input 
                   type="text" 
                   className="form-control" 
@@ -29,8 +30,8 @@ class Login extends Component {
                   onChange={(e) => { this.setState({ txtUsername: e.target.value }) }} 
                 />
               </div>
-              <div className="form-group">
-                <label>Password</label>
+              <div className="mb-3">
+                <label className="form-label">Password</label>
                 <input 
                   type="password" 
                   className="form-control" 
@@ -40,7 +41,7 @@ class Login extends Component {
               </div>
               <button 
                 type="submit" 
-                className="btn btn-primary btn-block"
+                className="btn btn-primary w-100"
                 onClick={(e) => this.btnLoginClick(e)}
               >
                 LOGIN
