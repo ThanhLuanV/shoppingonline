@@ -17,35 +17,33 @@ class Login extends Component {
   render() {
     if (this.context.token === '') {
       return (
-        <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
-          <div className="card shadow-sm p-4" style={{ maxWidth: '400px', width: '100%' }}>
-            <h2 className="text-center text-primary mb-4">ADMIN LOGIN</h2>
-            <form>
+        <div className="container mt-5 d-flex justify-content-center">
+          <div className="col-md-6 col-lg-4 card shadow-sm p-4">
+            <h2 className="text-center mb-4">ADMIN LOGIN</h2>
+            <form onSubmit={(e) => this.btnLoginClick(e)}>
               <div className="mb-3">
-                <label className="form-label">Username</label>
-                <input 
-                  type="text" 
-                  className="form-control" 
-                  value={this.state.txtUsername} 
-                  onChange={(e) => { this.setState({ txtUsername: e.target.value }) }} 
+                <input
+                  type="text"
+                  className="form-control"
+                  id="username"
+                  placeholder="Enter Username"
+                  value={this.state.txtUsername}
+                  onChange={(e) => this.setState({ txtUsername: e.target.value })}
+                  required
                 />
               </div>
               <div className="mb-3">
-                <label className="form-label">Password</label>
-                <input 
-                  type="password" 
-                  className="form-control" 
-                  value={this.state.txtPassword} 
-                  onChange={(e) => { this.setState({ txtPassword: e.target.value }) }} 
+                <input
+                  type="password"
+                  className="form-control"
+                  id="password"
+                  placeholder="Enter Password"
+                  value={this.state.txtPassword}
+                  onChange={(e) => this.setState({ txtPassword: e.target.value })}
+                  required
                 />
               </div>
-              <button 
-                type="submit" 
-                className="btn btn-primary w-100"
-                onClick={(e) => this.btnLoginClick(e)}
-              >
-                LOGIN
-              </button>
+              <button type="submit" className="btn btn-primary btn-block" style={{ display: 'block', margin: '0 auto', outline: 'none' }}>LOGIN</button>
             </form>
           </div>
         </div>
